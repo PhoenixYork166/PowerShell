@@ -49,14 +49,53 @@ $portMap = @{
     81 = 'TorPark (Dark Web browsing) service'
     82 = 'TorPark (Dark Web browsing) control'
     88 = 'Kerberos authentication'
+    105 = 'CCSO Nameserver'
+    109 = 'POP2'
+    110 = 'POP3'
+    111 = 'Portmapper (RPCBIND) service'
+    115 = 'Simple File Transfer Protocol (SFTP)'
+    117 = 'UUCP Mapping Project (path service) for UNIX file share'
+    118 = 'Default SQL services'
+    119 = 'Network News Transfer Protocol (NNTP)'
+    123 = 'Network Time Protocol (NTP)' 
+    135 = 'Microsoft Endpoint Mapper (EPMAP) incl. DHCP, DNS server used by DCOM'
+    137 = 'NetBIOS Name Service'
+    138 = 'NetBios Datagram Service'
+    139 = 'NetBios Session Service'
+    143 = 'Internet Message Access Protocol (IMAP)'
+    161 = 'Simple Network Management Protocol (SNMP)'
+    162 = 'SNMPTrap'
+    179 = 'Border Gateway Protocol(BGP)'
+    199 = 'SNMP Unix Multiplexer (SMUX)'
+    220 = 'IMAP3'
+    #264 = 'Border Gateway Multicast Protocol (BGMP)'
+    #311 = 'macOS Server Admin'
+    #312 = 'macOS Xsan administration'
+    318 = 'PKIX Time Stamp Protocol (TSP)'
+    369 = 'RPC2PortMap'
+    389 = 'Lightweight Directory Access Protocol (LDAP)'
     8080 = 'HTTP'
     443 = 'TLS'
     445 = 'SMB'
-    111 = 'Portmapper (RPCBIND) service'
+    464 = 'Kerberos Change/Set password'
+    1080 = 'Tripwire Enterprise Proxy'
     2049 = 'Network File System (NFS)'
     28260 = 'internal sysd IPC communication for internal processes'
     28261 = 'internal md applications to manage internal processes'
+    5670 = 'Tripwire Enterprise Axon Agent'
+    5900 = 'VNC viewer'
+    5901 = 'VNC viewer'
+    5902 = 'VNC viewer'
+    5903 = 'VNC viewer'
+    5904 = 'VNC viewer'
+    5905 = 'VNC viewer'
+    5906 = 'VNC viewer'
+    5907 = 'VNC viewer'
+    5908 = 'VNC viewer'
+    5909 = 'VNC viewer'
+    5910 = 'VNC viewer'
     5985 = 'WinRM PowerShell endpoint'
+    9898 = 'Tripwire Enterprise Zulu Agent'
 }
 
 # Iterate through useful IPs and Ports
@@ -104,6 +143,8 @@ function Scan-LocalPorts {
 }
 
 Scan-LocalPorts;
+
+
 
 function Find-UsefulIPs {
 $hostIP = (Get-NetIPAddress -AddressFamily IPv4).IPAddress;
