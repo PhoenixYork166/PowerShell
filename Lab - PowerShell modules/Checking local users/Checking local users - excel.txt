@@ -1,0 +1,37 @@
+$users = Get-CimInstance -ClassName Win32_UserAccount | select-object -property Name,FullName,Description,Caption,Disabled,Lockout,PasswordChangeable,PasswordExpires
+$short_summary = $users | Format-Table -AutoSize
+$short_summary > local_users_short.xls
+$file = Get-Item -Path (dir -Path c: -Include *users_summary.xlsx* -Recurse)
+Remove-Item -Path $file -Force
+New-Item -Name users_summary.xls -Path . -ItemType File -Value ""
+$name = $users.name
+"`r`nUsers naame: " >> users_summary.xls
+$name >> users_summary.xls
+$fullname = $users.fullname
+"`r`nFull name: " >> users_summary.xls
+$fullname >> users_summary.xls
+$des = $users.description
+"`r`nDescription: " >> users_summary.xls
+$des >> users_summary.xls
+$caption = $users.caption
+"`r`nCaption: " >> users_summary.xls
+$caption >> users_summary.xls
+$disabled = $users.disabled
+"`r`nDisabled: " >> users_summary.xls
+$disabled >> users_summary.xls
+$lockout = $users.lockout
+"`r`nLockout: " >> users_summary.xls
+$lockout >> users_summary.xls
+$passwordchangeable = $users.passwordchangeable
+"`r`nPassword Changeable: " >> users_summary.xls
+$passwordchangeable >> users_summary.xls
+$passwordexpires = $users.passwordexpires
+"`r`nPassword Expires: " >> users_summary.xls
+$passwordexpires >> users_summary.xls
+#$excel = New-Object -ComObject Excel.Application
+#$excel.visible = 1
+#$workbook = .\users_summary.xls
+#$excel.Workbooks.Open ($workbook)
+cat $file
+
+#$users = Get-CimInstance -ClassName Win32_UserAccount | select-object -property Name,FullName,Description,Caption,Disabled,Lockout,PasswordChangeable,PasswordExpires | Format-Table -Auto
